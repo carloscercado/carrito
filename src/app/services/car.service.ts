@@ -13,12 +13,17 @@ export class CarService {
   	let list: Product [] = this.products;
   	list.push(obj);
   	this.products = list;
-    this.total = 0;
-    this.products.forEach(x => this.total = this.total + Number(x.price));
+    this.defineTotal();
   }
 
   delete(obj: Product){
   	this.products = this.products.filter(x => x.id != obj.id);
+    this.defineTotal();
+  }
+
+  defineTotal(){
+    this.total = 0;
+    this.products.forEach(x => this.total = this.total + Number(x.price));
   }
 
 }

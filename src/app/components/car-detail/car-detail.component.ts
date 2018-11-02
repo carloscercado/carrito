@@ -8,12 +8,14 @@ import { Product } from './../../models/product';
   styleUrls: ['./car-detail.component.css']
 })
 export class CarDetailComponent implements OnInit {
-  productsAdded: Product[];
   constructor(private carService: CarService) { }
 
   ngOnInit() {
-  	this.productsAdded = this.carService.products;
   	window.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
+  }
+
+  delete(item: Product){
+  	this.carService.delete(item);
   }
 
 }
