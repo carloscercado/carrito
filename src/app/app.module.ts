@@ -23,6 +23,7 @@ import { MatBadgeModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
+import {MatSelectModule} from '@angular/material/select';
 
 //servicios
 import { ProductService } from './services/product.service';
@@ -74,7 +75,8 @@ const appRoutes: Routes = [
     MatBadgeModule,
     MatButtonModule,
     MatDialogModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule
   ],
   providers: [
     ProductService,

@@ -16,11 +16,14 @@
 					  </div>
 					</nav>
 			</div>
-			<div class="col-md-3 text-right">
-				<a href="#" routerLink="/car-detail">
-					<mat-icon [matBadge]="carService?.products?.length" matBadgeColor="warn">shopping_cart</mat-icon>
-				</a>
-			</div>
+			
+			<span class="navbar-text m-auto">
+			     <div class="col-md-3 text-right">
+					<a href="#" routerLink="/car-detail">
+						<mat-icon [matBadge]="carService?.products?.length" matBadgeColor="warn">shopping_cart</mat-icon>
+					</a>
+				</div>
+    		</span>			
 		</div>
 	</div>
 </mat-card>
