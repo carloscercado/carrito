@@ -1,0 +1,6 @@
+<button *ngIf="!!product" mat-stroked-button (click)="openDialog()" [disabled]="product.available">
+	<mat-icon>shopping_cart</mat-icon>
+	<span *ngIf="!product.available">Agregar al carro</span>
+	<span *ngIf="product.available">Fuera de stock</span>
+</button>
+

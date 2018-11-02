@@ -1,0 +1,27 @@
+<mat-card style="margin: 3%">
+	<mat-card-title>Productos agregados al carro</mat-card-title>
+	<mat-card-subtitle></mat-card-subtitle>
+		<mat-list *ngIf="productsAdded.length">
+		  <mat-list-item *ngFor="let item of productsAdded">
+		  	<img matListAvatar src="{{item.img}}">
+		    <h4 mat-line>Producto: {{item.name}}</h4>
+		    <p mat-line> Precio: {{item.price | currency}} </p>
+		    <p mat-line> Mejor vendedor: {{item.best_seller}} </p>
+		    <mat-divider></mat-divider>
+		  </mat-list-item>
+		  <mat-list-item>
+		  	<mat-icon mat-list-icon>shopping_cart</mat-icon>
+		  	<h4 mat-line>IVA: {{(carService.total - (carService.total * 0.12)) | currency}}</h4>
+		    <h4 mat-line>
+		    	<strong>TOTAL: {{carService.total | currency}}</strong>
+		    </h4>
+		  </mat-list-item>
+		</mat-list>
+		<div *ngIf="!productsAdded.length">
+			<mat-icon>info</mat-icon> No hay productos agregados al carro!<br>
+		</div>
+		<button  mat-stroked-button style="margin-left: 40%" [disabled]="productsAdded.length == 0">
+			<mat-icon>shopping_cart</mat-icon>
+			Proceder al pago
+		</button>
+</mat-card>

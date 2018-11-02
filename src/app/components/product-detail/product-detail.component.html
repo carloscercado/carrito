@@ -1,0 +1,16 @@
+<mat-card style="margin: 3%" *ngIf="!!product">
+	<div class="container-fluid">
+		<dir class="row">
+			<div class="col-md-6">
+				<img src="{{product.img}}" width="100%">
+			</div>
+			<div class="col-md-6">
+				Nombre: {{product.name}}<br>
+				Precio: {{product.price | currency}}<br>
+				En Stock: {{product.available}}<br>
+				Descripcion: {{product.description}}<br>
+				<app-add-product [product]="product"></app-add-product>
+			</div>
+		</dir>
+	</div>
+</mat-card>
