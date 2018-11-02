@@ -14,6 +14,6 @@ export class CategoryService {
    }
 
    getById(id: number): Category {
-  		return this.data.data.categories.find(x => x.id == id);
+  	return this.data.data.categories.find(x => x.categori_id == id);
    }
 }

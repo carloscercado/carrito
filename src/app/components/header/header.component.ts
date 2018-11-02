@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CarService } from './../../services/car.service';
+import { CategoryService } from './../../services/category.service';
+import { Category } from './../../models/category';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +9,12 @@ import { CarService } from './../../services/car.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private carService: CarService) { }
+  categories: Category[] = [];
+  constructor(private carService: CarService,
+  			  private categoryService: CategoryService) { }
 
   ngOnInit() {
+  	this.categories = this.categoryService.get();
   }
 
 }

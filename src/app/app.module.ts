@@ -13,6 +13,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { LandingComponent } from './components/landing/landing.component';
 import { DialogAddedComponent } from './components/dialog-added/dialog-added.component';
+import { CategoryDetailComponent } from './components/category-detail/category-detail.component';
+import { RouteReuseStrategy } from '@angular/router';
 
 // angular material 
 import { MatCardModule } from '@angular/material/card';
@@ -26,10 +28,12 @@ import { MatListModule } from '@angular/material/list';
 import { ProductService } from './services/product.service';
 import { CarService } from './services/car.service';
 import { CategoryService } from './services/category.service';
+import { CustomReuseStrategy } from './reute-reuse';
 
 const appRoutes: Routes = [
   { path: 'product/:id', component: ProductDetailComponent },
   { path: 'car-detail',      component: CarDetailComponent },
+  { path: 'category/:id',      component: CategoryDetailComponent },
   { path: 'login', component: LoginComponent },
   {
     path: 'store',
@@ -55,7 +59,8 @@ const appRoutes: Routes = [
     AddProductComponent,
     LoginComponent,
     LandingComponent,
-    DialogAddedComponent
+    DialogAddedComponent,
+    CategoryDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +79,8 @@ const appRoutes: Routes = [
   providers: [
     ProductService,
     CarService,
-    CategoryService
+    CategoryService,
+    {provide: RouteReuseStrategy, useClass: CustomReuseStrategy}
   ],
   bootstrap: [AppComponent],
   entryComponents: [
